@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ámbar ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="hearts-container" class="hearts-bg"></div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#galeria">Galería</a>
+        <a href="#razones">Razones</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#cupones">Cupones</a>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h1>Feliz San Valentín, Ámbar</h1>
+        <p>He programado esto para ti, porque eres mi excepción favorita en un mundo de variables.</p>
+        <button onclick="playMusic()">Ver nuestra historia 🎵</button>
+    </section>
+
+    <section id="galeria">
+        <h2>Nuestros Momentos</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="img/foto1.jpg" alt="Foto 1">
+                <figcaption>Un San Valentín y cada día que ha pasado te he amado más y más</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto2.jpg" alt="Foto 2">
+                <figcaption>Nuestra primera foto juntos</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto3.jpg" alt="Foto 3">
+                <figcaption>La primera vez que subiste algo conmigo</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto4.jpg" alt="Foto 4">
+                <figcaption>Cuando presencié lo agresiva que eras con los carros chocones me enamoré aún más</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto5.jpg" alt="Foto 5">
+                <figcaption>Nuestras primeras navidades juntos</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto6.jpg" alt="Foto 6">
+                <figcaption>Nuestro primer año nuevo juntos</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto7.jpg" alt="Foto 7">
+                <figcaption>La única vez que pisé un gimnasio</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="img/foto8.jpg" alt="Foto 8">
+                <figcaption>Esas salidas que alegran el alma y esa sonrisa que me devuelve la vida</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="razones">
+        <h2>100 Razones por las que te quiero</h2>
+        <div class="reasons-wrapper">
+            <div class="reasons-container" id="reasons-list"></div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2>¿Qué tanto recuerdas?</h2>
+        <div class="quiz-box" id="quiz-container">
+            <h3 id="question">Cargando...</h3>
+            <div id="options" class="options-grid"></div>
+            <p id="feedback"></p>
+        </div>
+
+        <div id="final-surprise" class="hidden">
+            <h2>¡Lo lograste! 🎉</h2>
+            
+            <div class="message-box">
+                <p>Estos solo son algunos de los recuerdos que tengo contigo y quiero que sepas que, a pesar de los altibajos, siempre querré vivir muchos más contigo. ¡Te amo un montón!</p>
+            </div>
+            
+            <div class="collage-container">
+                <img src="img/foto1.jpg">
+                <img src="img/foto2.jpg">
+                <img src="img/foto3.jpg">
+                <img src="img/foto4.jpg">
+                <img src="img/foto5.jpg">
+                <img src="img/foto6.jpg">
+                <img src="img/foto7.jpg">
+                <img src="img/foto8.jpg">
+            </div>
+
+            <div class="proposal-box">
+                <h3>Entonces... ¿Quieres ser mi San Valentín?</h3>
+                <div class="buttons">
+                    <button id="btn-si">¡SÍ, CLARO QUE SÍ!</button>
+                    <button id="btn-no">NO</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cupones">
+        <h2>Tus Regalos Digitales</h2>
+        <div class="coupons-grid">
+            <div class="coupon" onclick="redeem(this)"> Vale por una Cena 🍔 </div>
+            <div class="coupon" onclick="redeem(this)"> Vale por un Masaje 💆‍♀️ </div>
+            <div class="coupon" onclick="redeem(this)"> Vale por una Tarde de Pelis 🎬 </div>
+            <div class="coupon" onclick="redeem(this)"> Vale por un "Tienes Razón" 🃏 </div>
+        </div>
+    </section>
+
+    <footer><p>Hecho con ❤️ por Juan</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
