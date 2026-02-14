@@ -1,3 +1,5 @@
+/* --- style.css COMPLETO --- */
+
 /* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -6,10 +8,10 @@ body {
     background-color: #fff0f5; 
     color: #444;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita que las animaciones creen scroll lateral */
 }
 
-/* Animaciones */
+/* Animaciones de entrada */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -23,7 +25,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* Fondo Corazones */
+/* FONDO DE CORAZONES ANIMADOS */
 .hearts-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: -1; overflow: hidden;
@@ -48,20 +50,26 @@ h1, h2, h3 {
     100% { transform: translateY(-100vh) rotate(45deg) scale(1); opacity: 0; }
 }
 
-/* Nav */
+/* NAVEGACIÓN */
 nav {
     background: rgba(255,255,255,0.95); padding: 15px; text-align: center;
-    position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(214,51,132,0.2);
+    position: sticky; top: 0; z-index: 1000; 
+    box-shadow: 0 2px 10px rgba(214,51,132,0.2);
+    backdrop-filter: blur(5px);
 }
 nav a {
     margin: 0 12px; text-decoration: none; color: #d63384; font-weight: 700;
+    transition: 0.3s;
 }
+nav a:hover { transform: scale(1.1); display: inline-block; }
 
-/* Hero */
+/* SECCIONES GENERALES */
 section {
     padding: 70px 20px; min-height: 90vh; border-bottom: 2px dashed #ffccd5;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
+
+/* HERO (INICIO) */
 .hero {
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); text-align: center;
 }
@@ -73,7 +81,26 @@ section {
 }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-/* Galería */
+/* ESTILO DE LA CARTA (NUEVO) */
+.hero-letter {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15);
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    border: 1px solid #fff;
+    backdrop-filter: blur(5px);
+}
+.hero-letter p { margin-bottom: 15px; }
+.hero-letter strong { color: #d63384; font-size: 1.3rem; font-family: 'Pacifico', cursive; }
+
+
+/* GALERÍA */
 .gallery-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px; width: 100%; max-width: 1100px;
@@ -82,12 +109,17 @@ section {
     background: white; padding: 15px; border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08); text-align: center;
     transition: 0.3s;
+    transform: rotate(var(--r));
 }
-.gallery-item:hover { transform: scale(1.05); z-index: 10; }
+.gallery-item:nth-child(odd) { --r: 2deg; }
+.gallery-item:nth-child(even) { --r: -2deg; }
+.gallery-item:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
+
 .gallery-item img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; }
 .gallery-item figcaption { margin-top: 12px; font-weight: 600; color: #d63384; }
 
-/* 100 Razones */
+
+/* 100 RAZONES */
 .reasons-wrapper {
     width: 100%; max-width: 700px; background: white; padding: 10px;
     border-radius: 20px; border: 3px solid #ffd1dc;
@@ -99,10 +131,13 @@ section {
     background: linear-gradient(to right, #fff, #fff5f8);
     margin-bottom: 12px; padding: 15px; border-radius: 12px;
     border-left: 5px solid #d63384; display: flex; align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-.reason-number { font-weight: bold; color: #d63384; margin-right: 15px; }
+.reason-number { font-weight: bold; color: #d63384; margin-right: 15px; font-family: 'Pacifico', cursive; }
+.reason-icon { margin-right: 10px; }
 
-/* Quiz y Sorpresa */
+
+/* QUIZ, MENSAJE Y SORPRESA */
 .quiz-box, .proposal-box, .message-box {
     background: white; padding: 40px; border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 600px;
@@ -111,11 +146,12 @@ section {
 .options-grid button {
     display: block; width: 100%; margin: 12px 0; padding: 14px;
     background: #fff; border: 2px solid #eee; border-radius: 10px;
-    cursor: pointer; font-weight: 600;
+    cursor: pointer; font-weight: 600; transition: 0.2s;
 }
-.options-grid button:hover { background: #ffe0eb; color: #d63384; }
+.options-grid button:hover { background: #ffe0eb; color: #d63384; border-color: #d63384; }
 
-/* Collage */
+
+/* COLLAGE FINAL */
 .collage-container {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
     margin: 25px 0; max-width: 600px;
@@ -129,10 +165,13 @@ section {
 .collage-container img:nth-child(odd) { --r: 3deg; }
 .collage-container img:nth-child(even) { --r: -3deg; }
 
-/* Botones Finales (ARREGLADO) */
+
+/* BOTONES FINALES (ARREGLADO PARA LA BROMA) */
 .proposal-box .buttons {
     display: flex; justify-content: center; align-items: center;
-    gap: 30px; margin-top: 30px; position: relative; height: 100px;
+    gap: 30px; margin-top: 30px; 
+    position: relative; 
+    height: 100px; /* Espacio suficiente */
 }
 #btn-si {
     background: #28a745; color: white; border: none; padding: 15px 40px;
@@ -143,19 +182,24 @@ section {
     background: #dc3545; color: white; border: none; padding: 15px 40px;
     font-weight: bold; border-radius: 50px; cursor: pointer;
     font-size: 1.2rem; 
-    /* Truco: relative al principio, absolute cuando se mueva */
+    /* Iniciamos como RELATIVE para que se vea al lado del SÍ */
     position: relative; 
-    transition: 0.2s;
+    transition: 0.1s; /* Movimiento rápido */
 }
 
-/* Cupones */
+
+/* CUPONES */
 .coupons-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 .coupon {
     width: 160px; height: 160px; background: white; border: 3px dashed #d63384;
     border-radius: 15px; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 10px; font-weight: bold; color: #d63384; cursor: pointer;
+    transition: 0.3s;
 }
-.coupon:hover { background: #fff0f5; }
+.coupon:hover { background: #fff0f5; transform: rotate(3deg); }
 .redeemed { background: #e9ecef !important; text-decoration: line-through; cursor: default; }
+
 .hidden { display: none !important; }
+
+/* FOOTER */
 footer { text-align: center; padding: 30px; color: #d63384; }
